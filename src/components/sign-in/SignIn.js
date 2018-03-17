@@ -49,6 +49,15 @@ class SignIn extends React.Component {
 
       console.error(errorCode, errorMessage);
     });
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        console.log(user.uid)
+      }
+      else {
+        console.log("else")
+      }
+    })
   }
 
   handleKeyDown = event => {
