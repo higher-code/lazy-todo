@@ -51,10 +51,16 @@ class SignIn extends React.Component {
     });
   }
 
+  handleKeyDown = event => {
+    if (event.key === "Enter") {
+      this.handleClick();
+    }
+  }
+
   render() {
     const { classes } = this.props;
     const { email, password } = this.state;
-    const { handleChange, handleClick } = this;
+    const { handleChange, handleClick, handleKeyDown } = this;
 
     return (
       // <Grid item xs={12} sm={6} md={6}>
@@ -66,6 +72,7 @@ class SignIn extends React.Component {
             value={email}
             onChange={handleChange("email")}
             fullWidth
+            autoFocus
           />
           <TextField
             className={classes.textField}
@@ -74,6 +81,7 @@ class SignIn extends React.Component {
             onChange={handleChange("password")}
             fullWidth
             type="password"
+            onKeyDown={handleKeyDown}
           />
           <Button
             className={classes.button}

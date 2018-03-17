@@ -3,7 +3,7 @@ import React from 'react';
 import { withStyles } from 'material-ui/styles';
 // import Grid from 'material-ui/Grid';
 // Custom
-import {SignIn} from 'components/sign-in';
+import { SignIn } from 'components/sign-in';
 
 const styles = theme => ({
   root: {
