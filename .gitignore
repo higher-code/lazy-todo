@@ -22,3 +22,7 @@ yarn-error.log*
 
 # vscode
 .vscode
+
+# custom
+/src/config/users.json
+/src/config/firebase.json
