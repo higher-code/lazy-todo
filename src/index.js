@@ -5,6 +5,7 @@ import registerServiceWorker from './registerServiceWorker';
 import * as firebase from 'firebase';
 // Custom
 import { App } from 'components';
+import 'styles/main.scss';
 /**
  * @Warning Config not managed by git
  */
