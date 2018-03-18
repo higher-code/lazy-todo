@@ -7,6 +7,7 @@ import Button from 'material-ui/Button';
 import { withStyles } from 'material-ui/styles';
 // Firebase
 import * as firebase from 'firebase';
+import { setData } from 'utils/firebase';
 
 const styles = theme => ({
   root: {
@@ -52,12 +53,15 @@ class SignIn extends React.Component {
 
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        console.log(user.uid)
+        let data = {
+          email: user.email,
+        };
+        setData(user.uid, data);
       }
       else {
         console.log("else")
       }
-    })
+    });
   }
 
   handleKeyDown = event => {
