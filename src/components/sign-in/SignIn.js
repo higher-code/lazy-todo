@@ -8,6 +8,8 @@ import { withStyles } from 'material-ui/styles';
 // Firebase
 import * as firebase from 'firebase';
 import { setData } from 'utils/firebase';
+// Others
+// import { withRouter } from 'react-router-dom';
 
 const styles = theme => ({
   root: {
@@ -42,6 +44,7 @@ class SignIn extends React.Component {
 
   handleClick = () => {
     // console.log(this.state);
+    const { history } = this.props;
     const { email, password } = this.state;
     // Login
     firebase.auth().signInWithEmailAndPassword(email, password).catch((error) => {
@@ -57,6 +60,7 @@ class SignIn extends React.Component {
           email: user.email,
         };
         setData(user.uid, data);
+        history.push("/");
       }
       else {
         console.log("else")
