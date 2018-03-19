@@ -8,6 +8,7 @@ import { withStyles } from 'material-ui/styles';
 // Firebase
 import * as firebase from 'firebase';
 import { setData } from 'utils/firebase';
+import firebaseHandler from 'utils/firebase';
 // Others
 // import { withRouter } from 'react-router-dom';
 
@@ -47,13 +48,16 @@ class SignIn extends React.Component {
     const { history } = this.props;
     const { email, password } = this.state;
     // Login
-    firebase.auth().signInWithEmailAndPassword(email, password).catch((error) => {
-      let errorCode = error.code;
-      let errorMessage = error.message;
+    // firebase.auth().signInWithEmailAndPassword(email, password).catch((error) => {
+    //   let errorCode = error.code;
+    //   let errorMessage = error.message;
 
-      console.error(errorCode, errorMessage);
-    });
+    //   console.error(errorCode, errorMessage);
+    // });
 
+    let _firebaseHandler = new firebaseHandler();
+
+    _firebaseHandler.signIn(email, password);
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         let data = {
@@ -66,6 +70,9 @@ class SignIn extends React.Component {
         console.log("else")
       }
     });
+    
+    // console.log(firebaseHandler.isSigned);
+    // console.log(firebase.auth().currentUser);
   }
 
   handleKeyDown = event => {

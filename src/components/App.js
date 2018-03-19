@@ -5,6 +5,9 @@ import { withStyles } from 'material-ui/styles';
 // Custom
 import { SignIn } from 'components/sign-in';
 // import { Todos } from 'components/todos';
+// Firebase
+// import * as firebase from 'firebase';
+// import firebaseHandler from 'utils/firebase';
 // Others
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Loadable from 'react-loadable';
